@@ -54,7 +54,7 @@ export const Grid = ({ initialGrid }: Props) => {
                 return (
                   <div
                     key={x}
-                    className="size-4 bg-slate-100 border-[0.5px] border-slate-200 rounded-lg transition-colors"
+                    className="size-4 bg-slate-100 border-[0.5px] border-slate-400 rounded-lg transition-colors"
                   />
                 );
               })}
