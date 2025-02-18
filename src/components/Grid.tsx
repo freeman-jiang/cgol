@@ -46,40 +46,47 @@ export const Grid = ({ initialGrid }: Props) => {
     setGrid(createGrid());
   };
 
-  // 40x40 grid of True/False
-
   return (
-    <div className="flex flex-col items-center gap-4 p-4">
-      <h1 className="text-2xl font-bold">{"Conway's Game of Life"}</h1>
+    <div className="flex flex-col items-center gap-4 p-2 sm:p-4 max-w-full overflow-x-hidden">
+      <h1 className="text-xl sm:text-2xl font-bold text-center">
+        {"Conway's Game of Life"}
+      </h1>
 
-      <div className="flex gap-2">
+      <div className="flex flex-wrap justify-center gap-2">
         <Button
           onClick={handleStart}
           variant="default"
           disabled={!!intervalRef.current}
+          className="text-sm sm:text-base"
         >
-          Start Simulation
+          Start
         </Button>
         <Button
           onClick={handleStop}
           variant="outline"
           disabled={!intervalRef.current}
+          className="text-sm sm:text-base"
         >
-          Stop Simulation
+          Stop
         </Button>
         <Button
           onClick={handleRandomize}
           variant="secondary"
           disabled={!!intervalRef.current}
+          className="text-sm sm:text-base"
         >
-          Randomize
+          Random
         </Button>
-        <Button onClick={handleReset} variant="secondary">
+        <Button
+          onClick={handleReset}
+          variant="secondary"
+          className="text-sm sm:text-base"
+        >
           Reset
         </Button>
       </div>
 
-      <div className="border rounded-lg p-1 bg-slate-50">
+      <div className="border rounded-lg p-1 bg-slate-50 max-w-full overflow-auto">
         {grid.map((row, y) => {
           return (
             <div key={y} className="flex">
@@ -89,7 +96,7 @@ export const Grid = ({ initialGrid }: Props) => {
                     <div
                       key={x}
                       onClick={() => toggleCell(x, y)}
-                      className="size-4 bg-slate-900 rounded-lg transition-colors cursor-pointer hover:bg-slate-700"
+                      className="size-3 sm:size-4 bg-slate-900 rounded-lg transition-colors cursor-pointer hover:bg-slate-700"
                     />
                   );
                 }
@@ -97,7 +104,7 @@ export const Grid = ({ initialGrid }: Props) => {
                   <div
                     key={x}
                     onClick={() => toggleCell(x, y)}
-                    className="size-4 bg-slate-100 border-[0.5px] border-slate-200 rounded-lg transition-colors cursor-pointer hover:bg-slate-200"
+                    className="size-3 sm:size-4 bg-slate-100 border-[0.5px] border-slate-200 rounded-lg transition-colors cursor-pointer hover:bg-slate-200"
                   />
                 );
               })}
