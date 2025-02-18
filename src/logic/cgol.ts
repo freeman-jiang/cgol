@@ -1,12 +1,19 @@
 export const createGrid = () => {
-  const grid = new Array(40).fill(new Array(40).fill(false));
-
-  return grid.map((row) => {
-    return row.map(() => {
-      return updateCellStateRandom();
-    });
-  });
+  return Array(40)
+    .fill(null)
+    .map(() => Array(40).fill(false));
 };
+
+export const randomizeGrid = () => {
+  return Array(40)
+    .fill(null)
+    .map(() =>
+      Array(40)
+        .fill(null)
+        .map(() => Math.random() > 0.5)
+    );
+};
+
 export const updateGrid = (grid: Array<boolean[]>) => {
   return grid.map((row, y) => {
     return row.map((_, x) => {
