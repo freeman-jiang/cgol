@@ -14,7 +14,7 @@ export const Grid = ({ initialGrid }: Props) => {
   const handleStart = () => {
     intervalRef.current = setInterval(() => {
       setGrid(updateGrid);
-    }, 100);
+    }, 125);
   };
 
   const handleStop = () => {
