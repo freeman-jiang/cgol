@@ -1,4 +1,5 @@
 "use client";
+import { Button } from "@/components/ui/button";
 import { updateGrid } from "@/logic/cgol";
 import { useRef, useState } from "react";
 
@@ -25,24 +26,42 @@ export const Grid = ({ initialGrid }: Props) => {
   // 40x40 grid of True/False
 
   return (
-    <div>
-      <h1>Hello World</h1>
-      <button onClick={handleStart}>Start Simulation</button>
-      <button onClick={handleStop}>Stop Simulation</button>
+    <div className="flex flex-col items-center gap-4 p-4">
+      <h1 className="text-2xl font-bold">{"Conway's Game of Life"}</h1>
 
-      {grid.map((row, y) => {
-        return (
-          <div key={y} className="flex">
-            {row.map((cell, x) => {
-              if (cell) {
-                return <div key={x} className="size-4 bg-slate-900"></div>;
-              }
+      <div className="flex gap-2">
+        <Button onClick={handleStart} variant="default">
+          Start Simulation
+        </Button>
+        <Button onClick={handleStop} variant="outline">
+          Stop Simulation
+        </Button>
+      </div>
 
-              return <div key={x} className="size-4 bg-slate-100 border"></div>;
-            })}
-          </div>
-        );
-      })}
+      <div className="border rounded-lg p-1 bg-slate-50">
+        {grid.map((row, y) => {
+          return (
+            <div key={y} className="flex">
+              {row.map((cell, x) => {
+                if (cell) {
+                  return (
+                    <div
+                      key={x}
+                      className="size-4 bg-slate-900 rounded-lg transition-colors"
+                    />
+                  );
+                }
+                return (
+                  <div
+                    key={x}
+                    className="size-4 bg-slate-100 border-[0.5px] border-slate-200 rounded-lg transition-colors"
+                  />
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
     </div>
   );
 };
