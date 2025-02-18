@@ -1,7 +1,7 @@
 import { Grid } from "@/components/Grid";
-import { createGrid } from "@/logic/cgol";
+import { randomizeGrid } from "@/logic/cgol";
 
-const initialGrid = createGrid();
+const initialGrid = randomizeGrid();
 
 export default function Home() {
   return <Grid initialGrid={initialGrid} />;
